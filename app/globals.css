@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+}
+
+
+
+body {
+  font-family: "EB Garamond", serif;
+}
