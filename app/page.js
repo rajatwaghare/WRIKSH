@@ -40,10 +40,10 @@ export default function Home() {
         />
 
         <div className="gs-fade flex flex-col gap-10 sm:items-start sm:text-left">
-          <h1 className="text-xl md:text-3xl leading-10 tracking-tight text-black">
+          <h1 className="text-2xl md:text-3xl leading-10 tracking-tight text-black">
             Beauty awaknes the soul to act.
           </h1>
-          <p className="max-w-md text-sm md:text-lg md:leading-8">
+          <p className="max-w-md text-base md:text-lg md:leading-8">
             Search for what is good and strong and beautiful in your society and
             elaborate from there. Push outward. Always create from what you
             already have. Then you will know what to do.
@@ -51,11 +51,11 @@ export default function Home() {
         </div>
 
         <div className="gs-fade flex gap-4 text-base font-medium sm:flex-row">
-          <Link href="/aranya" className="flex relative text-xs md:text-sm font-mono items-center justify-center rounded-full transition-colors">
+          <Link href="/aranya" className="flex relative text-sm font-mono items-center justify-center rounded-full transition-colors">
             Explore Aranya
             <span className="h-[1] bg-gray-700 w-full absolute bottom-[-2px]"></span>
           </Link>
-          <Link href="/grain" className="flex relative text-xs md:text-sm font-mono items-center justify-center rounded-full transition-colors">
+          <Link href="/grain" className="flex relative text-sm font-mono items-center justify-center rounded-full transition-colors">
             Grain
             <span className="h-[1] bg-gray-700 w-full absolute bottom-[-2px]"></span>
           </Link>
