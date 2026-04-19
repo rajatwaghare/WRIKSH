@@ -1,9 +1,11 @@
+"use client";
+import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { RiExternalLinkLine } from "react-icons/ri";
-import { RiArrowLeftLine } from "react-icons/ri";
+import { RiExternalLinkLine, RiArrowLeftLine } from "react-icons/ri";
+import gsap from "gsap";
 
-// ─── DATA: add your findings here ───────────────────────────────────────────
+// ─── DATA ────────────────────────────────────────────────────────────────────
 
 const findings = [
   {
@@ -11,7 +13,7 @@ const findings = [
     id: "yt-1",
     title: "Pu La Deshpande speech reminiscing about Bal Gandharva",
     description: "Pu La Deshpande — Maharashtra's most beloved writer — speaks about Bal Gandharva not as a music critic, but as someone who was simply struck by beauty and never recovered. In this rare recording, PuLa recalls what it felt like to witness Bal Gandharva perform — how a man dressed as a woman could silence an entire generation, not through technique alone, but through something truer and harder to name. A reminder that beauty doesn't explain itself. It just arrives, and changes you.",
-    videoId: "vLX28CWbIsQ", // ← just the YouTube video ID
+    videoId: "vLX28CWbIsQ",
   },
   {
     type: "article",
@@ -22,20 +24,20 @@ const findings = [
     source: "The Marginalian",
   },
   {
-  type: "image",
-  id: "img-1",
-  title: "Flamingo — An Almanac of Birds",
-  description: "Under the surface of the present exists a sea of possibility. To reach it, a person must wade in the muddy rivers of change and traverse the uncertain without sinking. A botanical illustration turned into a quiet instruction for how to live.",
-  src: "/Flamingo.jpg",
-  alt: "Flamingo illustration with found poetry — Almanac of Birds",
-},
+    type: "image",
+    id: "img-1",
+    title: "Flamingo — An Almanac of Birds",
+    description: "Under the surface of the present exists a sea of possibility. To reach it, a person must wade in the muddy rivers of change and traverse the uncertain without sinking. A botanical illustration turned into a quiet instruction for how to live.",
+    src: "/Flamingo.jpg",
+    alt: "Flamingo illustration with found poetry — Almanac of Birds",
+  },
 ];
 
-// ─── BLOCK COMPONENTS ───────────────────────────────────────────────────────
+// ─── BLOCK COMPONENTS ────────────────────────────────────────────────────────
 
 function YoutubeBlock({ title, description, videoId }) {
   return (
-    <div className="flex flex-col gap-4 bg-white border border-zinc-200 rounded-xl p-5 shadow-sm">
+    <div className="gs-fade flex flex-col gap-4 bg-white border border-zinc-200 rounded-xl p-5 shadow-sm">
       <BlockMeta title={title} description={description} />
       <div className="relative w-full overflow-hidden rounded-lg" style={{ paddingTop: "56.25%" }}>
         <iframe
@@ -56,7 +58,7 @@ function ArticleBlock({ title, description, url, source }) {
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className="group flex flex-col gap-3 bg-white border border-zinc-200 rounded-xl p-5 shadow-sm hover:border-zinc-400 transition-colors"
+      className="gs-fade group flex flex-col gap-3 bg-white border border-zinc-200 rounded-xl p-5 shadow-sm hover:border-zinc-400 transition-colors"
     >
       <div className="flex items-center justify-between">
         <span className="text-xs uppercase tracking-widest text-zinc-400 font-mono">{source}</span>
@@ -69,7 +71,7 @@ function ArticleBlock({ title, description, url, source }) {
 
 function ImageBlock({ title, description, src, alt }) {
   return (
-    <div className="flex flex-col gap-4 bg-white border border-zinc-200 rounded-xl p-5 shadow-sm">
+    <div className="gs-fade flex flex-col gap-4 bg-white border border-zinc-200 rounded-xl p-5 shadow-sm">
       <Image
         src={src}
         alt={alt}
@@ -110,15 +112,34 @@ function Breadcrumb() {
 // ─── PAGE ────────────────────────────────────────────────────────────────────
 
 export default function Aranya() {
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    const els = containerRef.current.querySelectorAll(".gs-fade");
+
+    gsap.fromTo(
+      els,
+      { opacity: 0, y: 24 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.9,
+        ease: "power3.out",
+        stagger: 0.1,
+      }
+    );
+  }, []);
+
   return (
     <div className="flex flex-col flex-1 items-center relative z-10 pb-24">
-      <main className="flex flex-1 w-full max-w-2xl flex-col gap-10 py-24 pb-0 px-3 md:px-8">
-        <Image alt="WRIKSH Font" src="/logo-black.svg" width={100} height={20} priority />
+      <main ref={containerRef} className="flex flex-1 w-full max-w-2xl flex-col gap-10 py-24 pb-0 px-3 md:px-8">
+
+        <Image alt="WRIKSH Font" src="/logo-black.svg" width={100} height={20} priority className="gs-fade" />
 
         <Breadcrumb />
 
         {/* Header */}
-        <div className="flex flex-col gap-4">
+        <div className="gs-fade flex flex-col gap-4">
           <h1 className="text-3xl tracking-tight text-black">
             Aranya{" "}
             <span className="text-xl" style={{ fontFamily: "var(--font-sahitya)" }}>
@@ -132,9 +153,9 @@ export default function Aranya() {
         </div>
 
         {/* Divider */}
-        <div className="h-px w-12 bg-zinc-300" />
+        <div className="gs-fade h-px w-12 bg-zinc-300" />
 
-        {/* Findings */}
+        {/* Findings — each card animates individually */}
         <div className="flex flex-col gap-5">
           {findings.map((item) => {
             if (item.type === "youtube") return <YoutubeBlock key={item.id} {...item} />;

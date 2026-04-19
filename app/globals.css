@@ -24,6 +24,10 @@ body {
   animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
+.gs-fade {
+  opacity: 0;
+}
+
 body::before {
   content: "";
   position: fixed;
