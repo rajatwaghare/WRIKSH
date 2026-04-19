@@ -61,9 +61,9 @@ export default function Home() {
           </Link>
         </div>
 
-        <div className="gs-fade flex flex-col gap-4 text-base font-medium sm:flex-row mt-28 md:mt-0">
+        <div className="gs-fade flex flex-col gap-4 text-base font-medium sm:flex-row mt-36 md:mt-0">
           <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-gray-200 px-5 transition-colors md:w-[158px]"
+            className="flex h-12 items-center justify-center gap-2 rounded-full bg-gray-200 px-5 transition-colors w-[158px]"
             href="https://www.instagram.com/wriksh_beauty/"
             target="_blank"
             rel="noopener noreferrer"
