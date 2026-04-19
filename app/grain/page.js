@@ -114,7 +114,7 @@ export default function GrainApp() {
       {/* ── HOME ── */}
       {screen === 'home' && (
         <div className="g-screen">
-          <div className="g-wordmark">Gr<em>ai</em>n</div>
+          <div className="g-wordmark">Grain</div>
           <p className="g-tagline">Extract the grain.</p>
           <button className="g-btn-p" style={{ marginBottom: 10 }} onClick={() => { reset(); show('setup') }}>
             New problem →
