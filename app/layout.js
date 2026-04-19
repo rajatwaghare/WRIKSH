@@ -1,5 +1,7 @@
 import { EB_Garamond, Sahitya } from "next/font/google";
 import "./globals.css";
+import SmoothScroll from "./components/SmoothScroll";
+
 
 const ebGaramond = EB_Garamond({
   variable: "--font-eb-garamond",
@@ -19,8 +21,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${ebGaramond.variable} ${sahitya.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="en" className={`${ebGaramond.variable} ${sahitya.variable} antialiased`}>
+      <body className="flex flex-col">
+        <SmoothScroll>{children}</SmoothScroll>
+      </body>
     </html>
   );
 }
