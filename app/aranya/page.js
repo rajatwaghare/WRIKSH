@@ -132,7 +132,7 @@ export default function Aranya() {
 
   return (
     <div className="flex flex-col flex-1 items-center relative z-10 pb-24">
-      <main ref={containerRef} className="flex flex-1 w-full max-w-2xl flex-col gap-10 py-24 pb-0 px-3 md:px-8">
+      <main ref={containerRef} className="flex flex-1 w-full max-w-2xl flex-col gap-10 py-24 pb-0 px-4 md:px-8">
 
         <Image alt="WRIKSH Font" src="/logo-black.svg" width={100} height={20} priority className="gs-fade" />
 
