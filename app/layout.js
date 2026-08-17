@@ -17,9 +17,12 @@ const sahitya = Sahitya({
 
 export const metadata = {
   title: "Wriksh - Beauty Awaknes The Soul To Act.",
-  icons: {
-    icon: "/favicon.png",
-  },
+  icons: [
+    {
+      rel: "icon",
+      url: "/favicon.png",
+    },
+  ],
 };
 
 export default function RootLayout({ children }) {
