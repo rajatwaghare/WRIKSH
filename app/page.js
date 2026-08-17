@@ -42,7 +42,8 @@ export default function Home() {
             Something Beautiful is Brewing
           </h1>
           <p className="text-base md:text-lg text-gray-900 max-w-lg">
-            Our website is under construction. We're crafting something special for you.
+            Our website is under construction. <br className="hidden md:block" />
+            We're crafting something special for you.
           </p>
           <p className="text-sm md:text-base font-medium text-black tracking-wide">
             Stay Tuned
