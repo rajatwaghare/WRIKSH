@@ -23,10 +23,10 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="flex flex-col flex-1 items-center justify-center h-full bg-zinc-50">
+    <div className="flex flex-col items-center justify-center min-h-screen w-full bg-zinc-50">
       <main
         ref={containerRef}
-        className="flex flex-1 gap-10 w-full max-w-3xl flex-col items-center justify-center py-32 px-4 md:px-16"
+        className="flex flex-col gap-10 w-full max-w-3xl items-center justify-center px-4 md:px-16"
       >
         <Image
           alt="WRIKSH Logo"
